@@ -2,7 +2,7 @@
 
 Search Implementation with Lucene and SpringBoot
 
-##Requirements
+#Requirements
 
 This application is based on maven.
 You should install maven 3+ and Java8 to run this application.
