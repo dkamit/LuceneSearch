@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Search Application</title>
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Language Search Application</a>
+			</div>
+		</div>
+	</nav>
+
+	<div>
+		<form class="form-inline">
+			<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0"
+				id="searchBox" placeholder="Search">
+			<button type="submit" class="btn btn-primary"
+				onclick="searchFunction()">Submit</button>
+		</form>
+	</div>
+	<p id="demo"></p>
+
+	<script>
+		function searchFunction() {
+			var xhttp = new XMLHttpRequest();
+			var url = "search?query="
+					+ document.getElementById("searchBox").value
+			xhttp.open("GET", url, false);
+			xhttp.setRequestHeader("Content-type", "application/json");
+			xhttp.send();
+			var response = JSON.parse(xhttp.responseText);
+
+			var tableContents = "<table class=\"table table-striped table-bordered table-inverse\"><thead><tr><th>Name</th><th>Type</th><th>Designed by</th></tr></thead>"
+			for (var i = 0; i < response.length; i++) {
+				tableContents += "<tbody><tr><td>" + response[i].Name + "</td>"
+				tableContents += "<td>" + response[i].Type + "</td>"
+				tableContents += "<td>" + response[i]["Designed by"]
+						+ "</td></tr></tbody>"
+			}
+			tableContents += "</table>"
+			document.getElementById("demo").innerHTML = tableContents;
+		}
+	</script>
+
+</body>
+</html>
