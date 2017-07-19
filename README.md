@@ -11,9 +11,10 @@ You should install maven 3+ and Java8 to run this application.
 
 Method 1 : Run the application as mvn spring-boot:run
 Method 2 : Run the application with following commands
+            ```
             mvn clean install
             java -jar target/SearchApp-0.0.1-SNAPSHOT.jar
-
+            ```
 ##Server
 
 This app runs on Tomcat8, no need for an external tomcat since I am using embedded tomcat for running the application.
@@ -26,7 +27,7 @@ Advantages:
 ###Server Properties
 
 By Default server start at port 8080 you can modify the port number by passing the command line argument like
-        java -jar target/SearchApp-0.0.1-SNAPSHOT.jar --server.port=8081
+        ```java -jar target/SearchApp-0.0.1-SNAPSHOT.jar --server.port=8081```
 You can pass the index folder value as a command line argument as document.index.dir="New Location" this is where app will store all the indexed data.
 
 ##Testing the app
